@@ -43,17 +43,17 @@
 		E0379E0C1862C71900682D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E0379E0E1862C71900682D2F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E0379E101862C71900682D2F /* NTLimitationInputView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NTLimitationInputView-Prefix.pch"; sourceTree = "<group>"; };
-		E0379E111862C71900682D2F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		E0379E121862C71900682D2F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E0379E141862C71900682D2F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E0379E111862C71900682D2F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = NTLimitationInputView/AppDelegate.h; sourceTree = "<group>"; };
+		E0379E121862C71900682D2F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = NTLimitationInputView/AppDelegate.m; sourceTree = "<group>"; };
+		E0379E141862C71900682D2F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = NTLimitationInputView/Images.xcassets; sourceTree = "<group>"; };
 		E0379E1A1862C71900682D2F /* NTLimitationInputViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NTLimitationInputViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0379E1B1862C71900682D2F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		E0379E231862C71900682D2F /* NTLimitationInputViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NTLimitationInputViewTests-Info.plist"; sourceTree = "<group>"; };
 		E0379E251862C71900682D2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E0379E271862C71900682D2F /* NTLimitationInputViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NTLimitationInputViewTests.m; sourceTree = "<group>"; };
-		E0379E391862D01800682D2F /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
-		E0379E3A1862D01800682D2F /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
-		E0379E3B1862D01800682D2F /* DemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
+		E0379E391862D01800682D2F /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoViewController.h; path = NTLimitationInputView/DemoViewController.h; sourceTree = "<group>"; };
+		E0379E3A1862D01800682D2F /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoViewController.m; path = NTLimitationInputView/DemoViewController.m; sourceTree = "<group>"; };
+		E0379E3B1862D01800682D2F /* DemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DemoViewController.xib; path = NTLimitationInputView/DemoViewController.xib; sourceTree = "<group>"; };
 		E0379E3C1862D01800682D2F /* NTLimitationInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTLimitationInputView.h; sourceTree = "<group>"; };
 		E0379E3D1862D01800682D2F /* NTLimitationInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTLimitationInputView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +86,13 @@
 			isa = PBXGroup;
 			children = (
 				E0379E081862C71900682D2F /* NTLimitationInputView */,
+				E0379E391862D01800682D2F /* DemoViewController.h */,
+				E0379E3A1862D01800682D2F /* DemoViewController.m */,
+				E0379E3B1862D01800682D2F /* DemoViewController.xib */,
+				E0379E111862C71900682D2F /* AppDelegate.h */,
+				E0379E121862C71900682D2F /* AppDelegate.m */,
+				E0379E141862C71900682D2F /* Images.xcassets */,
+				E0379E091862C71900682D2F /* Supporting Files */,
 				E0379E211862C71900682D2F /* NTLimitationInputViewTests */,
 				E0379E011862C71900682D2F /* Frameworks */,
 				E0379E001862C71900682D2F /* Products */,
@@ -115,15 +122,8 @@
 		E0379E081862C71900682D2F /* NTLimitationInputView */ = {
 			isa = PBXGroup;
 			children = (
-				E0379E391862D01800682D2F /* DemoViewController.h */,
-				E0379E3A1862D01800682D2F /* DemoViewController.m */,
-				E0379E3B1862D01800682D2F /* DemoViewController.xib */,
 				E0379E3C1862D01800682D2F /* NTLimitationInputView.h */,
 				E0379E3D1862D01800682D2F /* NTLimitationInputView.m */,
-				E0379E111862C71900682D2F /* AppDelegate.h */,
-				E0379E121862C71900682D2F /* AppDelegate.m */,
-				E0379E141862C71900682D2F /* Images.xcassets */,
-				E0379E091862C71900682D2F /* Supporting Files */,
 			);
 			path = NTLimitationInputView;
 			sourceTree = "<group>";
@@ -137,6 +137,7 @@
 				E0379E101862C71900682D2F /* NTLimitationInputView-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = NTLimitationInputView;
 			sourceTree = "<group>";
 		};
 		E0379E211862C71900682D2F /* NTLimitationInputViewTests */ = {
