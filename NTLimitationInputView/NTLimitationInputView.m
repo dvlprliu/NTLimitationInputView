@@ -8,7 +8,6 @@
 
 #import "NTLimitationInputView.h"
 #import "LimitePasteTextView.h"
-@import QuartzCore;
 
 #define CAPACITY_LABEL_HEIGHT       30
 
@@ -21,13 +20,14 @@
 
 @implementation NTLimitationInputView
 
+@synthesize string = _string;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _maxLength = 0 ;
-        self.layer.borderColor = [UIColor blackColor].CGColor;
-        self.layer.borderWidth = 0.5;
+        _maxLength   = 0 ;
+        _edageOffset = 0;
         [self initilazeTextView];
         [self initilazeCapacityLabel];
     }
@@ -36,8 +36,7 @@
 
 - (void)awakeFromNib
 {
-    self.layer.borderColor = [UIColor blackColor].CGColor;
-    self.layer.borderWidth = 0.5;
+
     [self initilazeTextView];
     [self initilazeCapacityLabel];
 }
@@ -51,10 +50,10 @@
             [bself setCurrentCapacityWithCurrenLength:length];
         };
         _textView = [[LimitePasteTextView alloc] initWithFrame:(CGRect){
-            .origin.x = 5,
-            .origin.y = 5,
-            .size.width  = self.frame.size.width - 10,
-            .size.height = self.frame.size.height - 10 - CAPACITY_LABEL_HEIGHT
+            .origin.x = _edageOffset,
+            .origin.y = _edageOffset,
+            .size.width  = self.frame.size.width - 2 * _edageOffset,
+            .size.height = self.frame.size.height - 2 * _edageOffset - CAPACITY_LABEL_HEIGHT
         }];
         _textView.delegate = self;
         _textView.editable = YES;
@@ -103,10 +102,26 @@
     }
     
 }
+- (void)setString:(NSString *)string
+{
+    if (![_string isEqualToString:string]) {
+        _string = string;
+        self.textView.text = _string;
+    }
+}
+
+-(NSString *)string
+{
+    return self.textView.text;
+}
+
+- (void)becomeFirstResponder
+{
+    [self.textView becomeFirstResponder];
+}
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    
     NSInteger currentLength = textView.text.length;
     [self setCurrentCapacityWithCurrenLength:currentLength];
 }

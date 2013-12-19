@@ -11,8 +11,15 @@
 @class LimitePasteTextView;
 
 @interface NTLimitationInputView : UIView
+{
+    NSString *_string;
+}
 
 @property (nonatomic, assign) NSInteger maxLength;
+@property (nonatomic, assign) CGFloat   edageOffset;
 @property (nonatomic, strong) LimitePasteTextView *textView;
+@property (nonatomic, strong) NSString *string;
+
+- (void)becomeFirstResponder;
 
 @end
