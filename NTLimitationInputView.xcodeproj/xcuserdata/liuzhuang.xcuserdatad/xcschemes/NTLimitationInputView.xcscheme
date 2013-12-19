@@ -38,6 +38,16 @@
                ReferencedContainer = "container:NTLimitationInputView.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E0379E601862D55C00682D2F"
+               BuildableName = "NTLimitationInputView-NonARCTests.xctest"
+               BlueprintName = "NTLimitationInputView-NonARCTests"
+               ReferencedContainer = "container:NTLimitationInputView.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

@@ -22,6 +22,7 @@
 		E0379E3E1862D01800682D2F /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0379E3A1862D01800682D2F /* DemoViewController.m */; };
 		E0379E3F1862D01800682D2F /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0379E3B1862D01800682D2F /* DemoViewController.xib */; };
 		E0379E401862D01800682D2F /* NTLimitationInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0379E3D1862D01800682D2F /* NTLimitationInputView.m */; };
+		E0379E461862D36900682D2F /* LimitePasteTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E0379E451862D36900682D2F /* LimitePasteTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		E0379E3B1862D01800682D2F /* DemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DemoViewController.xib; path = NTLimitationInputView/DemoViewController.xib; sourceTree = "<group>"; };
 		E0379E3C1862D01800682D2F /* NTLimitationInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTLimitationInputView.h; sourceTree = "<group>"; };
 		E0379E3D1862D01800682D2F /* NTLimitationInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTLimitationInputView.m; sourceTree = "<group>"; };
+		E0379E441862D36900682D2F /* LimitePasteTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LimitePasteTextView.h; sourceTree = "<group>"; };
+		E0379E451862D36900682D2F /* LimitePasteTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LimitePasteTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +127,8 @@
 			children = (
 				E0379E3C1862D01800682D2F /* NTLimitationInputView.h */,
 				E0379E3D1862D01800682D2F /* NTLimitationInputView.m */,
+				E0379E441862D36900682D2F /* LimitePasteTextView.h */,
+				E0379E451862D36900682D2F /* LimitePasteTextView.m */,
 			);
 			path = NTLimitationInputView;
 			sourceTree = "<group>";
@@ -255,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0379E131862C71900682D2F /* AppDelegate.m in Sources */,
+				E0379E461862D36900682D2F /* LimitePasteTextView.m in Sources */,
 				E0379E401862D01800682D2F /* NTLimitationInputView.m in Sources */,
 				E0379E0F1862C71900682D2F /* main.m in Sources */,
 				E0379E3E1862D01800682D2F /* DemoViewController.m in Sources */,
