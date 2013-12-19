@@ -1,19 +1,23 @@
 //
 //  AppDelegate.m
-//  NTLimitationInputView
+//  LimitationTextViewDemo
 //
 //  Created by FFF on 13-12-19.
 //  Copyright (c) 2013年 Liu Zhuang. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "DemoViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    DemoViewController *viewController = [[DemoViewController alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
+    self.window.rootViewController = viewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -27,7 +31,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
