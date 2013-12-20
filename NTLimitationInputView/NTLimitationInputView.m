@@ -11,9 +11,11 @@
 
 #define CAPACITY_LABEL_HEIGHT       30
 
+@import QuartzCore;
+
 @interface NTLimitationInputView () <UITextViewDelegate>
 
-@property (nonatomic, strong) UILabel *capacityLabel;
+
 
 @end
 
@@ -27,7 +29,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         _maxLength   = 0 ;
-        _edageOffset = 0;
+        _marginOfTextView = 0;
+        _capacityColor = [UIColor blackColor];
+        _overflowColor = [UIColor redColor];
         [self initilazeTextView];
         [self initilazeCapacityLabel];
     }
@@ -49,12 +53,7 @@
         LPCommonBlock didPasteBlock = ^(NSInteger length){
             [bself setCurrentCapacityWithCurrenLength:length];
         };
-        _textView = [[LimitePasteTextView alloc] initWithFrame:(CGRect){
-            .origin.x = _edageOffset,
-            .origin.y = _edageOffset,
-            .size.width  = self.frame.size.width - 2 * _edageOffset,
-            .size.height = self.frame.size.height - 2 * _edageOffset - CAPACITY_LABEL_HEIGHT
-        }];
+        _textView = [[LimitePasteTextView alloc] initWithFrame:[self setTextViewFrameWithMargin:_marginOfTextView]];
         _textView.delegate = self;
         _textView.editable = YES;
         _textView.font = [UIFont fontWithName:@"HelveticaNeue-UltraLight" size:15];
@@ -96,12 +95,24 @@
     
     _capacityLabel.text = [NSString stringWithFormat:@"%ld",(long)currentCapacity];
     if (currentCapacity < 0) {
-        _capacityLabel.textColor = [UIColor redColor];
+        _capacityLabel.textColor = _overflowColor;
     } else {
-        _capacityLabel.textColor = [UIColor blackColor];
+        _capacityLabel.textColor = _capacityColor;
     }
     
 }
+
+- (void)becomeFirstResponder
+{
+    [self.textView becomeFirstResponder];
+}
+
+- (void)resignFirstResponder
+{
+    [self.textView resignFirstResponder];
+}
+
+
 - (void)setString:(NSString *)string
 {
     if (![_string isEqualToString:string]) {
@@ -110,14 +121,23 @@
     }
 }
 
+- (void)setBackgroundImage:(UIImage *)backgroundImage
+{
+    if (_backgroundImage != backgroundImage) {
+        _backgroundImage = backgroundImage;
+        
+        self.textView.backgroundColor = [UIColor clearColor];
+        self.capacityLabel.backgroundColor = [UIColor clearColor];
+        
+        self.layer.contents = (id)_backgroundImage.CGImage;
+        self.layer.masksToBounds = YES;
+        self.layer.contentsGravity = @"resizeAspectFill";
+    }
+}
+
 -(NSString *)string
 {
     return self.textView.text;
-}
-
-- (void)becomeFirstResponder
-{
-    [self.textView becomeFirstResponder];
 }
 
 - (void)textViewDidChange:(UITextView *)textView
@@ -126,9 +146,75 @@
     [self setCurrentCapacityWithCurrenLength:currentLength];
 }
 
+- (void)setMarginOfTextView:(CGFloat)marginOfTextView
+{
+    if (_marginOfTextView != marginOfTextView) {
+        _marginOfTextView = marginOfTextView;
+        _textView.frame = [self setTextViewFrameWithMargin:_marginOfTextView];
+    }
+}
+
+- (CGRect)setTextViewFrameWithMargin:(CGFloat)margin
+{
+    CGRect textFrame = (CGRect) {
+        .origin.x = margin,
+        .origin.y = margin,
+        .size.width = self.frame.size.width - 2 * margin,
+        .size.height = self.frame.size.height - 0.5 * margin - CAPACITY_LABEL_HEIGHT
+    };
+    
+    return textFrame;
+}
+
+- (void)setBorderStyle:(NTInputViewBorderStyle)borderStyle
+{
+    _borderStyle = borderStyle;
+    
+    switch (borderStyle) {
+        case NTInputViewBorderStyleLine:
+        {
+            [self setLinedBorderStyle];
+            break;
+        }
+        case NTInputViewBorderStyleRoundedRect:
+        {
+            [self setRoundedBorderStyle];
+        }
+        case NTInputViewBorderStyleNone:
+        {
+            [self setNoneBorderStyle];
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
 - (void)dealloc
 {
  
+}
+
+#pragma mark - set border methoud
+
+- (void)setRoundedBorderStyle
+{
+    self.layer.borderColor  = [UIColor blackColor].CGColor;
+    self.layer.borderWidth  = 1;
+    self.layer.cornerRadius = 7.5;
+}
+
+- (void)setLinedBorderStyle
+{
+    self.layer.borderColor = [UIColor blackColor].CGColor;
+    self.layer.borderWidth = 1;
+}
+
+- (void)setNoneBorderStyle
+{
+    self.layer.borderWidth  = 0;
+    self.layer.cornerRadius = 0;
 }
 
 

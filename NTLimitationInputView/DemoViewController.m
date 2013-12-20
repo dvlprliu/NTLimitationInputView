@@ -34,8 +34,12 @@
         .size.width  = 320 - 40,
         .size.height = 300
     }];
-    inputView.maxLength = 100;
+    inputView.capacityColor = [UIColor blueColor];
+    inputView.overflowColor = [UIColor orangeColor];
+    inputView.maxLength = 10;
+    inputView.marginOfTextView = 10;
 
+    inputView.borderStyle = NTInputViewBorderStyleLine;
     [self.view addSubview:inputView];
 }
 
